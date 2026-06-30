@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ceylon Coco Fuel — Premium Coconut Shell Charcoal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D0B09;
+    --bg2:#171310;
+    --bg3:#1F1A15;
+    --gold:#E0AA46;
+    --gold-light:#F0C875;
+    --gold-deep:#B6822A;
+    --cream:#F4EDE0;
+    --ash:#BBB0A0;
+    --line:rgba(224,170,70,0.18);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .head{ font-family:'Oswald', sans-serif; text-transform:uppercase; }
+  a{color:inherit; text-decoration:none;}
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  header{
+    background:var(--bg); border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+  }
+  nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 32px; max-width:1240px; margin:0 auto; gap:20px;}
+  .brand{ display:flex; align-items:center; gap:14px; }
+  .brand svg{ width:54px; height:54px; flex-shrink:0;}
+  .brand-text .l1{ font-family:'Oswald',sans-serif; font-weight:600; font-size:21px; letter-spacing:0.06em; color:var(--gold-light);}
+  .brand-text .l2{ font-family:'Oswald',sans-serif; font-weight:600; font-size:21px; letter-spacing:0.04em; color:var(--cream); margin-top:-4px;}
+  .brand-text .tag{ font-size:9.5px; letter-spacing:0.18em; color:var(--ash); margin-top:3px;}
+  .navlinks{ display:flex; gap:30px; font-size:13.5px; letter-spacing:0.05em; font-weight:500;}
+  .navlinks a{ color:var(--cream); opacity:0.85; transition:color .2s, opacity .2s;}
+  .navlinks a.active, .navlinks a:hover{ color:var(--gold); opacity:1;}
+  .quote-btn{
+    background:var(--gold); color:var(--bg); font-weight:600; font-size:13px;
+    letter-spacing:0.05em; padding:13px 22px; border-radius:3px;
+    display:flex; align-items:center; gap:8px; transition:background .2s;
+  }
+  .quote-btn:hover{ background:var(--gold-light); }
+  @media (max-width:920px){ .navlinks{display:none;} }
+
+  .hero{
+    position:relative; overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 800px 500px at 78% 35%, rgba(224,170,70,0.10), transparent 65%),
+      linear-gradient(180deg, var(--bg) 0%, #0a0908 100%);
+  }
+  .hero-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding:90px 0 70px;}
+  @media (max-width:920px){ .hero-grid{ grid-template-columns:1fr; padding:60px 0 50px;} }
+  .hero h1{ font-size:clamp(30px,4vw,40px); font-weight:500; line-height:1.18; letter-spacing:0.01em;}
+  .hero h1 .gold-line{ color:var(--gold); font-weight:700; font-size:clamp(38px,5.4vw,56px); display:block; letter-spacing:0.01em;}
+  .feat-trio{ display:flex; gap:0; margin:26px 0 22px; flex-wrap:wrap; }
+  .feat-trio span{ font-size:13px; color:var(--cream); display:flex; align-items:center; gap:7px; padding-right:18px; margin-right:18px; border-right:1px solid var(--line);}
+  .feat-trio span:last-child{ border-right:none; }
+  .feat-trio b{ color:var(--gold); }
+  .hero p.lead{ color:var(--ash); font-size:15.5px; max-width:460px; margin-bottom:30px;}
+  .btn-row{ display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{ display:inline-flex; align-items:center; gap:9px; padding:14px 26px; border-radius:3px; font-weight:600; font-size:13.5px; letter-spacing:0.04em; transition:all .2s;}
+  .btn-gold{ background:var(--gold); color:var(--bg); }
+  .btn-gold:hover{ background:var(--gold-light); transform:translateY(-1px);}
+  .btn-outline{ border:1px solid var(--gold-deep); color:var(--gold-light); }
+  .btn-outline:hover{ border-color:var(--gold); background:rgba(224,170,70,0.08);}
+
+  .hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; min-height:340px;}
+  .cube-pile{ position:relative; width:100%; max-width:380px; aspect-ratio:1.2/1; }
+  .cube{ position:absolute; width:62px; height:62px; border-radius:6px;
+    background:linear-gradient(145deg,#2b2420,#0d0b09 70%);
+    box-shadow: inset 0 0 14px rgba(0,0,0,0.6), 0 10px 18px -6px rgba(0,0,0,0.6), 0 0 0 1px rgba(224,170,70,0.06);
+  }
+  .cube::after{ content:""; position:absolute; inset:5px; border-radius:4px; background:linear-gradient(160deg, rgba(255,255,255,0.05), transparent 55%);}
+  .c1{ left:8%; top:48%; transform:rotate(-6deg);}
+  .c2{ left:24%; top:30%; transform:rotate(4deg);}
+  .c3{ left:42%; top:46%; transform:rotate(-3deg);}
+  .c4{ left:33%; top:10%; transform:rotate(8deg);}
+  .c5{ left:55%; top:24%; transform:rotate(-9deg);}
+  .c6{ left:60%; top:52%; transform:rotate(5deg);}
+  .c7{ left:14%; top:8%; transform:rotate(-12deg);}
+  .badge{
+    position:absolute; right:-6px; bottom:-6px; width:104px; height:104px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #2c2419, #15110d 75%);
+    border:2px solid var(--gold); display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'Oswald',sans-serif; color:var(--gold-light);
+    font-size:10px; letter-spacing:0.04em; line-height:1.35; font-weight:600;
+    box-shadow:0 0 30px rgba(224,170,70,0.25);
+  }
+  .whatsapp-pill{ position:absolute; left:0; bottom:6%; display:flex; align-items:center; gap:8px; }
+  .whatsapp-pill .label{ background:var(--cream); color:var(--bg); font-size:12px; font-weight:600; padding:9px 14px; border-radius:20px;}
+  .whatsapp-pill .icon{ width:38px; height:38px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px;}
+
+  .strip{ background:var(--bg2); border-bottom:1px solid var(--line); }
+  .strip-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:0; padding:30px 0;}
+  @media (max-width:920px){ .strip-grid{grid-template-columns:repeat(2,1fr); row-gap:24px;} }
+  .strip-item{ display:flex; gap:13px; align-items:flex-start; padding:0 14px; border-right:1px solid var(--line);}
+  .strip-grid .strip-item:last-child{border-right:none;}
+  @media (max-width:920px){ .strip-item{border-right:none;} }
+  .strip-item .ic{ color:var(--gold); font-size:20px; flex-shrink:0; margin-top:2px;}
+  .strip-item h5{ font-size:13px; letter-spacing:0.04em; color:var(--gold-light); text-transform:uppercase; font-weight:600;}
+  .strip-item p{ font-size:12.5px; color:var(--ash); margin-top:3px; line-height:1.4;}
+
+  section{ padding:80px 0; }
+  .section-title{ text-align:center; margin-bottom:46px;}
+  .section-title h2{ font-family:'Oswald',sans-serif; font-weight:600; font-size:clamp(24px,3vw,32px); letter-spacing:0.04em; color:var(--cream);}
+  .section-title .underline{ width:54px; height:3px; background:var(--gold); margin:14px auto 0;}
+
+  .products{ border-bottom:1px solid var(--line); }
+  .pgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:900px){ .pgrid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .pgrid{grid-template-columns:1fr;} }
+  .pcard{ border:1px solid var(--line); border-radius:5px; overflow:hidden; background:var(--bg2); transition:transform .25s, border-color .25s;}
+  .pcard:hover{ transform:translateY(-5px); border-color:var(--gold-deep);}
+  .pthumb{ height:180px; position:relative; overflow:hidden; }
+  .pthumb .tx{ position:absolute; inset:0; }
+  .plabel{ background:var(--gold); color:var(--bg); padding:13px 18px; font-weight:600; font-size:13.5px; letter-spacing:0.03em; display:flex; align-items:center; gap:9px;}
+
+  .tx-shisha{ background:
+    radial-gradient(circle at 30% 70%, rgba(255,110,40,0.35), transparent 45%),
+    repeating-linear-gradient(45deg,#191512 0 14px,#0d0b09 14px 28px);}
+  .tx-bbq{ background:
+    radial-gradient(circle at 50% 80%, rgba(255,130,40,0.5), rgba(255,90,20,0.15) 40%, transparent 65%),
+    linear-gradient(180deg,#120f0c,#0a0908);}
+  .tx-hex{ background:
+    radial-gradient(circle at 70% 30%, rgba(224,170,70,0.12), transparent 50%),
+    repeating-conic-gradient(from 0deg, #15110d 0deg 60deg, #1d1813 60deg 120deg);}
+  .tx-cube{ background:
+    linear-gradient(135deg,#211b15,#0c0a08 65%),
+    repeating-linear-gradient(90deg, rgba(224,170,70,0.05) 0 2px, transparent 2px 26px);}
+  .tx-shell{ background:
+    radial-gradient(circle at 35% 40%, rgba(180,120,60,0.35), transparent 50%),
+    linear-gradient(160deg,#3a2a1c,#160f0a 70%);}
+  .tx-cshell{ background:
+    radial-gradient(circle at 60% 35%, rgba(210,160,110,0.4), transparent 55%),
+    linear-gradient(150deg,#4a3624,#1a120c 70%);}
+
+  .why{ background:var(--bg2); border-bottom:1px solid var(--line); }
+  .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  @media (max-width:880px){ .why-grid{grid-template-columns:1fr;} }
+  .why-list{ list-style:none; display:flex; flex-direction:column; gap:18px;}
+  .why-list li{ display:flex; gap:14px; align-items:flex-start;}
+  .why-list .num{ font-family:'Oswald',sans-serif; color:var(--gold); font-weight:700; font-size:14px; border:1px solid var(--gold-deep); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .why-list h6{ font-size:14.5px; color:var(--cream); font-weight:600;}
+  .why-list p{ font-size:13.5px; color:var(--ash); margin-top:3px;}
+  .why-visual{ border:1px solid var(--line); border-radius:6px; padding:30px; background:var(--bg);}
+  .bar-row{ display:grid; grid-template-columns:140px 1fr 56px; align-items:center; gap:14px; margin-bottom:20px;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-row .blabel{ font-size:12.5px; color:var(--cream);}
+  .btrack{ height:11px; background:rgba(224,170,70,0.08); border-radius:6px; overflow:hidden;}
+  .bfill{ height:100%; border-radius:6px; width:0; transition:width 1.3s ease;}
+  .bfill.coco{ background:linear-gradient(90deg,var(--gold-deep),var(--gold));}
+  .bfill.other{ background:rgba(244,237,224,0.25);}
+  .bval{ font-family:'Oswald',sans-serif; font-size:14px; color:var(--gold-light); text-align:right;}
+  .bars.in-view .bfill.coco{width:100%;}
+  .bars.in-view .bfill.other{width:52%;}
+
+  .export-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line);}
+  @media (max-width:880px){ .export-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .export-grid{grid-template-columns:1fr;} }
+  .estep{ padding:30px 24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .estep .en{ font-family:'Oswald',sans-serif; font-size:34px; font-weight:700; color:transparent; -webkit-text-stroke:1.3px var(--gold);}
+  .estep h6{ margin-top:8px; font-size:14.5px; font-weight:600; color:var(--cream);}
+  .estep p{ font-size:12.8px; color:var(--ash); margin-top:6px;}
+
+  .contact{ background:var(--bg2); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:880px){ .contact-grid{grid-template-columns:1fr;} }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px;}
+  .field label{ font-size:12px; color:var(--ash);}
+  .field input, .field textarea, .field select{
+    background:var(--bg); border:1px solid var(--line); color:var(--cream);
+    padding:12px 14px; border-radius:3px; font-family:inherit; font-size:14px;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{ outline:2px solid var(--gold);}
+  .field textarea{ min-height:90px; resize:vertical;}
+  form button{ border:none; cursor:pointer;}
+  .crow{ display:flex; gap:14px; align-items:flex-start; margin-bottom:20px;}
+  .crow .ic{ color:var(--gold); font-size:17px; margin-top:2px;}
+  .crow .l{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ash);}
+  .crow .v{ font-size:15px; color:var(--cream); margin-top:2px;}
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; background:var(--bg);}
+  .foot-row{ display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center; font-size:13px; color:var(--ash);}
+  .foot-item{ display:flex; align-items:center; gap:9px;}
+  .foot-item .ic{ color:var(--gold);}
+  .socials{ display:flex; gap:10px;}
+  .socials a{ width:32px; height:32px; border:1px solid var(--gold-deep); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:13px; transition:background .2s, color .2s;}
+  .socials a:hover{ background:var(--gold); color:var(--bg);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="47" stroke="#E0AA46" stroke-width="2"/>
+        <path d="M50 62 C46 62 43 58 43 53 C43 47 50 38 50 38 C50 38 57 47 57 53 C57 58 54 62 50 62Z" fill="#E0AA46"/>
+        <path d="M50 40 C50 40 40 36 33 24 C44 24 50 32 50 40Z" fill="#E0AA46"/>
+        <path d="M50 40 C50 40 60 36 67 24 C56 24 50 32 50 40Z" fill="#E0AA46"/>
+        <path d="M50 40 C50 40 36 40 26 32 C36 30 47 33 50 40Z" fill="#E0AA46"/>
+        <path d="M50 40 C50 40 64 40 74 32 C64 30 53 33 50 40Z" fill="#E0AA46"/>
+        <circle cx="40" cy="66" r="7" fill="#E0AA46"/>
+        <circle cx="50" cy="70" r="7" fill="#E0AA46"/>
+        <circle cx="60" cy="66" r="7" fill="#E0AA46"/>
+      </svg>
+      <div class="brand-text">
+        <div class="l1">CEYLON</div>
+        <div class="l2">COCO FUEL</div>
+        <div class="tag">PREMIUM COCONUT SHELL CHARCOAL</div>
+      </div>
+    </div>
+    <div class="navlinks">
+      <a href="#home" class="active">HOME</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#export">EXPORT</a>
+      <a href="#why">WHY US</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <a href="#contact" class="quote-btn">GET A QUOTE ➤</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="head">PREMIUM COCONUT SHELL<span class="gold-line">CHARCOAL PRODUCTS</span>FROM SRI LANKA</h1>
+      <div class="feat-trio">
+        <span><b>✦</b> 100% NATURAL</span>
+        <span><b>✦</b> ECO FRIENDLY</span>
+        <span><b>✦</b> EXPORT QUALITY</span>
+      </div>
+      <p class="lead">We produce high quality coconut shell charcoal products for Shisha, BBQ and Industrial use with consistent quality and reliable supply.</p>
+      <div class="btn-row">
+        <a href="#products" class="btn btn-gold">✉ OUR PRODUCTS</a>
+        <a href="https://wa.me/94789075332" class="btn btn-outline">☎ WHATSAPP US</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="cube-pile">
+        <div class="cube c7"></div>
+        <div class="cube c4"></div>
+        <div class="cube c2"></div>
+        <div class="cube c5"></div>
+        <div class="cube c1"></div>
+        <div class="cube c3"></div>
+        <div class="cube c6"></div>
+        <div class="badge">PREMIUM<br>QUALITY<br>GUARANTEED</div>
+        <div class="whatsapp-pill">
+          <span class="label">Chat with us</span>
+          <span class="icon">☎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-grid">
+    <div class="strip-item"><div class="ic">🔥</div><div><h5>Long Burning Time</h5><p>Consistent and longer burning</p></div></div>
+    <div class="strip-item"><div class="ic">🌡</div><div><h5>High Heat Output</h5><p>Produces high heat for longer time</p></div></div>
+    <div class="strip-item"><div class="ic">🍃</div><div><h5>Low Ash Content</h5><p>Low ash for easy cleaning</p></div></div>
+    <div class="strip-item"><div class="ic">⚗</div><div><h5>No Chemicals</h5><p>100% natural, no additives</p></div></div>
+    <div class="strip-item"><div class="ic">🛡</div><div><h5>Reliable Supply</h5><p>On time delivery with consistent quality</p></div></div>
+  </div>
+</div>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-title"><h2 class="head">Our Products</h2><div class="underline"></div></div>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-shisha"></div></div>
+        <div class="plabel">🔥 Shisha Charcoal</div>
+      </div>
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-bbq"></div></div>
+        <div class="plabel">🍖 BBQ Charcoal</div>
+      </div>
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-hex"></div></div>
+        <div class="plabel">⬡ Hexagonal Briquettes</div>
+      </div>
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-cube"></div></div>
+        <div class="plabel">◼ Cube Briquettes</div>
+      </div>
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-shell"></div></div>
+        <div class="plabel">🥥 Coconut Shells</div>
+      </div>
+      <div class="pcard">
+        <div class="pthumb"><div class="tx tx-cshell"></div></div>
+        <div class="plabel">✓ Cleaned Coconut Shells</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div>
+      <div class="section-title" style="text-align:left; margin-bottom:30px;"><h2 class="head">Why Coconut Shell</h2><div class="underline" style="margin-left:0;"></div></div>
+      <ul class="why-list">
+        <li><div class="num">1</div><div><h6>Burns Longer</h6><p>Dense fibre structure means more cook time per kg than wood charcoal.</p></div></li>
+        <li><div class="num">2</div><div><h6>Cleaner Burn</h6><p>Low ash, low spark, no chemical smell — safe for indoor shisha use.</p></div></li>
+        <li><div class="num">3</div><div><h6>Sustainable Source</h6><p>Made from shell waste that would otherwise be discarded or burned openly.</p></div></li>
+      </ul>
+    </div>
+    <div class="why-visual">
+      <div class="bars" id="burnBars">
+        <div class="bar-row"><div class="blabel">Coconut Shell</div><div class="btrack"><div class="bfill coco"></div></div><div class="bval">~3 hrs</div></div>
+        <div class="bar-row"><div class="blabel">Wood Charcoal</div><div class="btrack"><div class="bfill other"></div></div><div class="bval">~1.5 hrs</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="export" id="export">
+  <div class="wrap">
+    <div class="section-title"><h2 class="head">Export Process</h2><div class="underline"></div></div>
+  </div>
+  <div class="export-grid">
+    <div class="estep"><div class="en">01</div><h6>Shell Collection</h6><p>Sourced from coconut mills along Sri Lanka's coastal belt.</p></div>
+    <div class="estep"><div class="en">02</div><h6>Carbonization</h6><p>Slow-burned in controlled kilns for high fixed carbon.</p></div>
+    <div class="estep"><div class="en">03</div><h6>Sizing & Packing</h6><p>Sorted, bagged and palletized to your specification.</p></div>
+    <div class="estep"><div class="en">04</div><h6>Shipment</h6><p>Containerized from Colombo with full export documents.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-title" style="text-align:left; margin-bottom:30px;"><h2 class="head">Get A Quote</h2><div class="underline" style="margin-left:0;"></div></div>
+      <div class="crow"><div class="ic">📍</div><div><div class="l">Location</div><div class="v">Thambagalla, Kurunegala, Sri Lanka</div></div></div>
+      <div class="crow"><div class="ic">📞</div><div><div class="l">Phone</div><div class="v">+94 78 907 5332</div></div></div>
+      <div class="crow"><div class="ic">✉</div><div><div class="l">Email</div><div class="v">info@ceyloncocofuel.com</div></div></div>
+      <div class="crow"><div class="ic">🌐</div><div><div class="l">Website</div><div class="v">www.ceyloncocofuel.com</div></div></div>
+    </div>
+    <form id="quoteForm">
+      <div class="field"><label for="name">Full Name</label><input id="name" required type="text"></div>
+      <div class="field"><label for="email">Email</label><input id="email" required type="email"></div>
+      <div class="field"><label for="prod">Product</label>
+        <select id="prod">
+          <option>Shisha Charcoal</option><option>BBQ Charcoal</option>
+          <option>Hexagonal Briquettes</option><option>Cube Briquettes</option>
+          <option>Coconut Shells</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">Volume &amp; Destination Port</label><textarea id="msg" placeholder="e.g. 2 x 20ft containers monthly, Jebel Ali port"></textarea></div>
+      <button type="submit" class="btn btn-gold">Send Inquiry ➤</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-item"><span class="ic">📍</span> Thambagalla, Kurunegala, Sri Lanka</div>
+    <div class="foot-item"><span class="ic">📞</span> +94 78 907 5332</div>
+    <div class="foot-item"><span class="ic">✉</span> info@ceyloncocofuel.com</div>
+    <div class="foot-item"><span class="ic">🌐</span> www.ceyloncocofuel.com</div>
+    <div class="socials">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Instagram">ig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bars = document.getElementById('burnBars');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ bars.classList.add('in-view'); io.disconnect(); } });
+  }, {threshold:0.4});
+  io.observe(bars);
+
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Inquiry Sent ✓';
+    setTimeout(()=>{ btn.textContent = 'Send Inquiry ➤'; }, 2600);
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
